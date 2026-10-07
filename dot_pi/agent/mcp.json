@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "atlassian": {
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "description": "Jira and Confluence"
+    },
+    "databricks-sql-prod": {
+      "url": "https://lm-atlas.cloud.databricks.com/api/2.0/mcp/sql",
+      "headers": { "Authorization": "!~/.pi/agent/databricks-token.sh prod" },
+      "description": "Databricks SQL, production"
+    },
+    "databricks-sql-staging": {
+      "url": "https://lm-atlas-staging.cloud.databricks.com/api/2.0/mcp/sql",
+      "headers": { "Authorization": "!~/.pi/agent/databricks-token.sh staging" },
+      "description": "Databricks SQL, staging"
+    }
+  }
+}
