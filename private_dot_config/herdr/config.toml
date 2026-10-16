@@ -1,0 +1,13 @@
+onboarding = false
+
+[ui]
+# 26 -> 39 (default +50%); max must rise too or it clamps at 36
+sidebar_width = 39
+sidebar_max_width = 39
+
+[ui.sidebar.agents]
+# session name on its own line, agent name in the trailing slot
+rows = [
+  ["state_icon", "machine", "workspace", "agent"],
+  ["tab"],
+]
