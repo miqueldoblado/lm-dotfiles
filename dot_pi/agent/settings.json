@@ -44,5 +44,9 @@
     }
   },
   "steeringMode": "all",
-  "tuiMode": "regular"
+  "tuiMode": "regular",
+  "subagents": {
+    "defaultModel": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "defaultThinking": "high"
+  }
 }
