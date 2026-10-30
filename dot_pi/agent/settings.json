@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.0.4",
+  "lastChangelogVersion": "1.4.0",
   "theme": "dark",
   "defaultProvider": "openrouter",
   "defaultModel": "deepseek/deepseek-v4.1-flash-1017",
@@ -16,12 +16,12 @@
     "npm:@ff-labs/pi-fff",
     "npm:@juicesharp/rpiv-todo",
     "npm:@nicknisi/pi-cloak",
-    "npm:@tintinweb/pi-subagents",
     "npm:pi-clarify",
     "npm:pi-powerline-footer",
     "npm:pi-rewind",
     "npm:pi-web-access@0.35.0",
-    "git:git@github.com:Launchmetrics/LM-AI@main"
+    "git:git@github.com:Launchmetrics/LM-AI@main",
+    "npm:pi-subagents"
   ],
   "powerline": {
     "welcome": false,
@@ -43,5 +43,6 @@
       ]
     }
   },
-  "steeringMode": "all"
+  "steeringMode": "all",
+  "tuiMode": "regular"
 }
