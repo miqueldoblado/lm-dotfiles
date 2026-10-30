@@ -47,6 +47,55 @@
   "tuiMode": "regular",
   "subagents": {
     "defaultModel": "openrouter/deepseek/deepseek-v4.1-flash-1017",
-    "defaultThinking": "high"
+    "defaultThinking": "high",
+    "agentOverrides": {
+      "scout": {
+        "inheritProjectContext": false
+      }
+    }
+  },
+  "compaction": {
+    "keepRecentTokens": 12000,
+    "modelOverrides": {
+      "openrouter/anthropic/claude-opus-5.5": {
+        "reserveTokens": 500000
+      },
+      "openrouter/anthropic/claude-sonnet-5": {
+        "reserveTokens": 500000
+      },
+      "openrouter/deepseek/deepseek-v4-pro-0813": {
+        "reserveTokens": 524288
+      },
+      "openrouter/deepseek/deepseek-v4.1-flash-1017": {
+        "reserveTokens": 524288
+      },
+      "openrouter/google/gemini-3.8-flash": {
+        "reserveTokens": 524288
+      },
+      "openrouter/google/gemini-4-argon": {
+        "reserveTokens": 524288
+      },
+      "openrouter/moonshotai/kimi-k3": {
+        "reserveTokens": 524288
+      },
+      "openrouter/openai/gpt-6-luna": {
+        "reserveTokens": 787856
+      },
+      "openrouter/openai/gpt-6.1-sol": {
+        "reserveTokens": 787856
+      },
+      "openrouter/openai/gpt-6.1-terra": {
+        "reserveTokens": 787856
+      },
+      "openrouter/x-ai/grok-4.7": {
+        "reserveTokens": 303392
+      },
+      "openrouter/z-ai/glm-5.3": {
+        "reserveTokens": 524288
+      },
+      "openrouter/z-ai/glm-5.3-flash": {
+        "reserveTokens": 524288
+      }
+    }
   }
 }
