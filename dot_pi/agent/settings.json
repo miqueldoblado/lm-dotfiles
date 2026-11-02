@@ -57,10 +57,13 @@
   "compaction": {
     "keepRecentTokens": 12000,
     "modelOverrides": {
+      "openrouter/anthropic/claude-haiku-5.5": {
+        "reserveTokens": 500000
+      },
       "openrouter/anthropic/claude-opus-5.5": {
         "reserveTokens": 500000
       },
-      "openrouter/anthropic/claude-sonnet-5": {
+      "openrouter/anthropic/claude-sonnet-5.5": {
         "reserveTokens": 500000
       },
       "openrouter/deepseek/deepseek-v4-pro-0813": {
@@ -94,6 +97,48 @@
         "reserveTokens": 524288
       },
       "openrouter/z-ai/glm-5.3-flash": {
+        "reserveTokens": 524288
+      },
+      "openrouter/~anthropic/claude-haiku-latest": {
+        "reserveTokens": 500000
+      },
+      "openrouter/~anthropic/claude-opus-latest": {
+        "reserveTokens": 500000
+      },
+      "openrouter/~anthropic/claude-sonnet-latest": {
+        "reserveTokens": 500000
+      },
+      "openrouter/~deepseek/deepseek-flash-latest": {
+        "reserveTokens": 524288
+      },
+      "openrouter/~deepseek/deepseek-pro-latest": {
+        "reserveTokens": 524288
+      },
+      "openrouter/~google/gemini-flash-latest": {
+        "reserveTokens": 524288
+      },
+      "openrouter/~google/gemini-pro-latest": {
+        "reserveTokens": 524288
+      },
+      "openrouter/~moonshotai/kimi-latest": {
+        "reserveTokens": 524288
+      },
+      "openrouter/~openai/gpt-luna-latest": {
+        "reserveTokens": 787856
+      },
+      "openrouter/~openai/gpt-sol-latest": {
+        "reserveTokens": 787856
+      },
+      "openrouter/~openai/gpt-terra-latest": {
+        "reserveTokens": 787856
+      },
+      "openrouter/~x-ai/grok-latest": {
+        "reserveTokens": 303392
+      },
+      "openrouter/~z-ai/glm-flash-latest": {
+        "reserveTokens": 524288
+      },
+      "openrouter/~z-ai/glm-latest": {
         "reserveTokens": 524288
       }
     }
