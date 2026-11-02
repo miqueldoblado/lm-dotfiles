@@ -2,7 +2,7 @@
   "lastChangelogVersion": "1.4.0",
   "theme": "dark",
   "defaultProvider": "openrouter",
-  "defaultModel": "deepseek/deepseek-v4.1-flash-1017",
+  "defaultModel": "~deepseek/deepseek-flash-latest",
   "defaultProjectTrust": "always",
   "defaultThinkingLevel": "max",
   "hideThinkingBlock": true,
@@ -46,7 +46,7 @@
   "steeringMode": "all",
   "tuiMode": "regular",
   "subagents": {
-    "defaultModel": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+    "defaultModel": "openrouter/~deepseek/deepseek-flash-latest",
     "defaultThinking": "high",
     "agentOverrides": {
       "scout": {
