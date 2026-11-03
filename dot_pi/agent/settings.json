@@ -21,7 +21,7 @@
     "npm:pi-rewind",
     "npm:pi-web-access@0.35.0",
     "git:git@github.com:Launchmetrics/LM-AI@main",
-    "npm:@tintinweb/pi-subagents@0.22.0"
+    "npm:@tintinweb/pi-subagents@0.22.1"
   ],
   "powerline": {
     "welcome": false,
