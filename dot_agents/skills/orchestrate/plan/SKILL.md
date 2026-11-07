@@ -41,6 +41,13 @@ Read the chosen host module (`../hosts/<host>.md`) and check its requirements
 before planning. A plan approved for a host that cannot dispatch is a plan that
 cannot run.
 
+## Check the models
+
+Read the role defaults from `../run/SKILL.md`'s Models section. Check each
+named model against `pi --list-models`. A model that is not found is a stop:
+tell the operator which model is missing and ask which to use instead — do not
+guess and do not silently substitute.
+
 ## Read the contract
 
 Read `../core/CONTEXT.md` for the domain and rules, then `../core/plan.md` and

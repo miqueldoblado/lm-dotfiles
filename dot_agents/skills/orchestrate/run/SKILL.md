@@ -22,8 +22,8 @@ Role defaults, passed to the host's dispatch as the host module specifies:
 | Role | Model |
 |---|---|
 | worker | pi's configured default (no flag) |
-| code-review | `openrouter/z-ai/glm-5.3` |
-| ponytail | `openrouter/anthropic/claude-sonnet-5.5` |
+| code-review | `openrouter/~z-ai/glm-latest` |
+| ponytail | `openrouter/~anthropic/claude-sonnet-latest` |
 
 The family rule (core/run.md) requires the three roles to be different
 families: worker (deepseek), review (GLM), ponytail (Claude). Check every named
