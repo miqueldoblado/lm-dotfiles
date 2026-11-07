@@ -89,6 +89,14 @@ In `land` mode, the commit gate is skipped and the change is opened as a draft.
 
 In Flow B each item has its own commit gate.
 
+**An amendment returns to the plan gate.** If the operator changes what an item
+must do after the plan gate, the manifest is stale. Write the change into the
+plan's own home first, through the tracker's `write-back` verb — the local
+markdown spec and tickets, or the tracker's issue when that is where the plan
+lives — then quote the changed acceptance line back to the operator for a yes,
+and only then dispatch. Work already dispatched under the old acceptance is
+re-read against the new one; it is never assumed to still fit.
+
 **A question is not a go.** When the operator's message is a question, answer
 it and wait: do not dispatch or commit the change it implies until the operator
 answers with a direction.

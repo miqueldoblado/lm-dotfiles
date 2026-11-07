@@ -65,6 +65,11 @@ round is never spawned: the item is `blocked` with `cause.code:
 cap_exhausted`, its findings are surfaced to the operator, and the rest of the
 frontier keeps moving.
 
+**Rounds are counted per freeze.** A findings round belongs to the artifact it
+read. When an amendment produces a new freeze, that freeze starts its own
+budget of two; the item's lifetime total is a number for the retro, never a
+reason to block a change the operator asked for.
+
 **A re-review is scoped to the delta.** Its brief names what changed and only
 the earlier conclusions that change could have invalidated.
 
