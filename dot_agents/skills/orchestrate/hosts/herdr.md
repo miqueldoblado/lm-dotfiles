@@ -48,9 +48,18 @@ and `.result.worktree.path` — record all three.
 
 ## release
 
+Undo what `dispatch` created, in this order — the lane's tab, then its worktree:
+
 ```sh
+herdr tab close <tab_id>
 herdr worktree remove --workspace <item-ws>
 ```
 
-Never `--force`: a dirty worktree refusing removal is the signal that work is
-still in it.
+`herdr tab close` kills the pane; the lane's transcript stays on disk at the
+`agent_session.value` the dispatch recorded, so closing loses the pane and not
+the work. Close only the tabs this run created — the coordinator's own pane and
+the operator's other tabs are never ours to close.
+
+Flow `A` has no worktree, so only the tabs are closed. Flow `B` removes the
+worktree last: never `--force`, because a dirty worktree refusing removal is the
+signal that work is still in it.

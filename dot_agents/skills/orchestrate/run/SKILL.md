@@ -42,6 +42,12 @@ Follow `../core/run.md`: dispatch wave 1 before touching anything, route
 reviews per the review contract, keep the ledger as the run goes, and land the
 run through the publisher's verbs.
 
+## Release
+
+After the commit gate says yes, release every lane through the host's `release`
+verb — the tabs the run opened, and any worktree it made. Nothing of the
+operator's is released.
+
 ## Hand off
 
 When the run settles, ask the operator whether to run the retro. On yes, hand

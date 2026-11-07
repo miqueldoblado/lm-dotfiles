@@ -110,6 +110,17 @@ exact commands.
 `land` opens the change as a draft and stops. `gated` asks before publishing
 and merges after the yes.
 
+## Release
+
+Undo each lane's dispatch once the run has landed, through the host's `release`
+verb: lanes are workers, reviews and ponytail passes, and a settled lane has no
+reason to keep a pane or a worktree alive. Release only what the run created;
+the coordinator's own pane and the operator's tabs are not yours.
+
+Never release before the commit gate says yes — a run that stops at the gate may
+need its worker again to answer the operator. Record each release as it happens,
+the same way the dispatch was recorded.
+
 ## Ticket write-back
 
 When the run settles, mark the tickets through the tracker's `write-back` verb.
