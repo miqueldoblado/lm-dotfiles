@@ -50,7 +50,8 @@ follow it.
 
 Follow `../core/plan.md`: read the spec and tickets through the tracker
 module's `read` verb, plan the run, take one approval, and write the manifest
-per `../core/manifest-contract.md`.
+per `../core/manifest-contract.md`. State the role defaults in the approval
+message — read them from `../run/SKILL.md`'s Models section.
 
 ## Hand off
 

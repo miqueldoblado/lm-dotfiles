@@ -15,6 +15,21 @@ Read the manifest's configuration (host, publisher, tracker). Read the chosen
 modules from `../hosts/<host>.md`, `../publishers/<publisher>.md`,
 `../trackers/<tracker>.md`.
 
+## Models
+
+Role defaults, passed to the host's dispatch as the host module specifies:
+
+| Role | Model |
+|---|---|
+| worker | pi's configured default (no flag) |
+| code-review | `openrouter/z-ai/glm-5.3` |
+| ponytail | `openrouter/anthropic/claude-sonnet-5.5` |
+
+The family rule (core/run.md) requires the three roles to be different
+families: worker (deepseek), review (GLM), ponytail (Claude). Check every named
+model against `pi --list-models` before dispatching; a model that does not work
+stops the run.
+
 ## Read the contract
 
 Read `../core/CONTEXT.md` for the domain and rules, then `../core/run.md` and
