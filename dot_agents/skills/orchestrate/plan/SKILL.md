@@ -35,6 +35,12 @@ Propose the defaults and offer the options:
 The operator accepts the defaults or overrides one axis. Write the chosen
 configuration into the manifest.
 
+## Check the host's preflight
+
+Read the chosen host module (`../hosts/<host>.md`) and check its requirements
+before planning. A plan approved for a host that cannot dispatch is a plan that
+cannot run.
+
 ## Read the contract
 
 Read `../core/CONTEXT.md` for the domain and rules, then `../core/plan.md` and
