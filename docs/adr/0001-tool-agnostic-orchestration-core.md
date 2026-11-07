@@ -1,0 +1,3 @@
+# Tool-agnostic orchestration core with pluggable modules
+
+The orchestration workflow is split into three layers: a core that names no tool, one module per external system (host, publisher, tracker), and a generic adapter that binds them at invocation. The core speaks only in abstract verbs — `dispatch`, `wait`, `collect`, `isolate`, `release` for a host; `publish`, `merge`, `state` for a publisher; `read`, `write-back` for a tracker — and each module implements those verbs for one system. The adapter proposes a default configuration and lets the operator override it, so switching hosts is an answer, not a rewrite.

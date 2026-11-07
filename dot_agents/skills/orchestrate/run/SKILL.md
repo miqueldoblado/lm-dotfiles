@@ -1,0 +1,33 @@
+---
+name: orchestrate-run
+description: "Execute an approved orchestration manifest as a supervised run: dispatch one agent per item, route reviews, and land the run. Invoked by the plan skill; do not invoke without a manifest."
+disable-model-invocation: true
+---
+
+# Orchestrate Run
+
+The run phase. Execute the manifest: dispatch one agent per item, keep the
+ledger, route review findings, and land the run.
+
+## Read the configuration
+
+Read the manifest's configuration (host, publisher, tracker). Read the chosen
+modules from `../hosts/<host>.md`, `../publishers/<publisher>.md`,
+`../trackers/<tracker>.md`.
+
+## Read the contract
+
+Read `../core/CONTEXT.md` for the domain and rules, then `../core/run.md` and
+follow it. Read `../core/review-contract.md` for the review rules and
+`../core/ledger.md` for the ledger shape.
+
+## Run the run phase
+
+Follow `../core/run.md`: dispatch wave 1 before touching anything, route
+reviews per the review contract, keep the ledger as the run goes, and land the
+run through the publisher's verbs.
+
+## Hand off
+
+When the run settles, ask the operator whether to run the retro. On yes, hand
+off: `/skill:orchestrate-retro` with the ledger.
