@@ -23,12 +23,17 @@ Role defaults, passed to the host's dispatch as the host module specifies:
 |---|---|
 | worker | pi's configured default (no flag) |
 | code-review | `openrouter/~z-ai/glm-latest` |
-| ponytail | `openrouter/~anthropic/claude-sonnet-latest` |
+| ponytail | `openrouter/~anthropic/claude-haiku-latest` |
 
 The family rule (core/run.md) requires the three roles to be different
 families: worker (deepseek), review (GLM), ponytail (Claude). Check every named
 model against `pi --list-models` before dispatching; a model that does not work
 stops the run.
+
+Ponytail is a cheap lane on purpose: it reads a bounded frozen diff, and a
+frontier model there costs more than every other lane combined. Step up to
+`~google/gemini-flash-latest` or `~openai/gpt-terra-latest` if its notes come
+back shallow.
 
 ## Read the contract
 
