@@ -15,7 +15,9 @@ The report has five sections:
   smallest change that prevents it next time.
 - **Changes to the main skill** — ranked proposals, each naming the section it
   edits; at most three, and `no skill change is argued` when the rules
-  explained the run.
+  explained the run. Skills live in a chezmoi-managed tree: apply a proposal by
+  editing its source (`chezmoi source-path <target>`) and landing that, never
+  by editing the target alone, which is drift the next `chezmoi apply` discards.
 - **Time per phase** — from the ledger's timestamps.
 - **Cost per model** — from the ledger's model records.
 
