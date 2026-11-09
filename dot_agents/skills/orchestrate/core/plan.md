@@ -19,7 +19,11 @@ module names the exact commands; this file owns the shape of what is read.
 1. Read the spec and every ticket.
 2. Build the graph from each ticket's `Blocked by:` line.
 3. Assign each item a file scope from what it will build. Disjoint scopes plus
-   settled blockers form a parallel wave; overlapping scopes serialize.
+   settled blockers form a parallel wave; overlapping scopes serialize. **A pin
+   carries the pins it executes**: an item that moves an interpreter or a
+   toolchain version also owns every exact-version pin that version runs — build
+   requirements, packaging metadata, install commands in CI — because a stale
+   one fails the build with nothing in the diff to show for it.
 4. **Reduce the item count first.** Every item costs a full worker plus a
    fresh-eyes review cycle, so one item per ticket is the wrong starting point.
    Items with identical file scopes merge into one item unless the work needs
