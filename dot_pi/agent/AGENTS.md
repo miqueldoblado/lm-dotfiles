@@ -36,3 +36,36 @@ create it in project `RBT` (Data Platform) — not in FIRE:
   afterwards and confirm that wording before reporting done.
 - `RBT-1138` and `RBT-1137` show the shape to match, minus the key-suffixed
   summaries they use
+
+## RBT tickets move on the DEN Kanban (board 264)
+
+Column names differ from status names — transition by id, never by name:
+
+| Column | Status | Transition id |
+| --- | --- | --- |
+| Backlog | To Do | 11 |
+| Selected for Dev | Selected for Development | 241 |
+| In Progress | In Progress | 231 (name `In Progress (2)`) |
+| TO REVIEW | In Review | 31 |
+| BLOCKED | Blocked | 281 |
+| TO TEST | Ready to Test | 51 |
+| READY TO DEPLOY | TO_DEPLOY | 201 |
+| Done | Done | 211 (name `Done (2)`) |
+
+"TO TEST" is status `Ready to Test`.
+
+- starting work on a ticket → In Progress
+- opening a PR for a ticket → In Review. **Not while the PR is a draft** — leave the
+  ticket alone, and move it the moment it is undrafted
+- PR turned back into a draft, or review requests changes → back to In Progress,
+  as soon as you notice it
+- "deploy to staging" → Ready to Test, by whichever mechanism the repo uses:
+  - LM-github-workflows repos: post `/deployStaging` on the PR — that comment
+    merges the branch into `staging` and deploys it
+  - Rubin repos (per `LM-wiki/pls/rubin/dev-process.md`): merge the PR into
+    `develop`, which deploys staging
+- "deploy to production" = merge the PR to `main`, which deploys prod → Done.
+  Exception: in Rubin repos prod needs manual intervention, so stop and hand over
+  instead of merging to `master`
+- never move a ticket to TO_DEPLOY yourself — QA does that once Ready to Test passes
+- PR titles and commits carry the ticket: `feat: RBT-1098 add taxonomy aliases`
