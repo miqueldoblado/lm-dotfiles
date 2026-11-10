@@ -1,7 +1,8 @@
 # Machine-wide agent instructions
 
-Facts about this machine only. A repository's own `AGENTS.md` is the authority
-on that repository: this file adds to it and never replaces it.
+Facts about this machine and my own working conventions. A repository's own
+`AGENTS.md` is the authority on that repository: this file adds to it and never
+replaces it.
 
 ## Dotfiles are managed by chezmoi, not by bare git
 
@@ -19,3 +20,19 @@ repository". That is **not** evidence that a file is unversioned.
   would otherwise revert it
 - The dotfiles repo is `~/.local/share/chezmoi`; commit there
 - An unrecorded target edit is drift, and the next `chezmoi apply` discards it
+
+## Fireline follow-ups go to RBT
+
+When I ask for a linked work item, ticket, or follow-up from a FIRE incident,
+create it in project `RBT` (Data Platform) — not in FIRE:
+
+- Type `Bug` for a defect, `Task` for planned work; label `Fireline`; priority `Minor`
+- Summary: a plain one-line statement of the problem or the work — no Jira keys,
+  the link carries the reference
+- Description: root cause → what happens → verification evidence → plan
+- Link with `createJiraIssueLink`, link type `Problem/Incident`,
+  `inwardIssue` = the new RBT key, `outwardIssue` = the FIRE key → reads
+  "RBT causes FIRE" / "FIRE is caused by RBT". Re-read the FIRE ticket
+  afterwards and confirm that wording before reporting done.
+- `RBT-1138` and `RBT-1137` show the shape to match, minus the key-suffixed
+  summaries they use
