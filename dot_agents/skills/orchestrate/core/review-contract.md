@@ -109,6 +109,13 @@ fresh-eyes review only when its diff adds no executable behaviour. A fix that
 adds or changes behaviour gets a fresh-eyes review of the fix delta before the
 item settles.
 
+**A ponytail pass is capped at one pass plus one re-check per item.** Unlike a
+findings round, a re-check does not consume the review cap, so an uncapped
+ponytail loop multiplies: one run spawned seven ponytail sessions across two
+items, at 40% of the run's cost. After the re-check, a ponytail note that names
+a defect is a finding and goes through the review loop; a note that is a
+preference is reported to the operator as a nit and does not spawn another pass.
+
 ## A finding that contradicts the spec
 
 When a review or ponytail finding conflicts with the approved manifest or the

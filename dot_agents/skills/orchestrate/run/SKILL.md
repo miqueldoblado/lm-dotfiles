@@ -17,23 +17,37 @@ modules from `../hosts/<host>.md`, `../publishers/<publisher>.md`,
 
 ## Models
 
-Role defaults, passed to the host's dispatch as the host module specifies:
+Role defaults, passed to the host's dispatch as the host module specifies. The
+`:medium` suffix is the thinking level — gates run below `max` on purpose
+(*why* below).
 
 | Role | Model |
 |---|---|
 | worker | pi's configured default (no flag) |
-| code-review | `openrouter/~z-ai/glm-latest` |
-| ponytail | `openrouter/~anthropic/claude-haiku-latest` |
+| code-review | `openrouter/~z-ai/glm-latest:medium` |
+| ponytail | `openrouter/~openai/gpt-luna-latest:medium` |
 
 The family rule (core/run.md) requires the three roles to be different
-families: worker (deepseek), review (GLM), ponytail (Claude). Check every named
+families: worker (deepseek), review (GLM), ponytail (OpenAI). Check every named
 model against `pi --list-models` before dispatching; a model that does not work
 stops the run.
 
+**Never `~`-alias an Anthropic model.** The tilde alias disables prompt caching
+for Anthropic on OpenRouter: measured 0% cache hits on 87 turns of
+`~anthropic/claude-sonnet-latest` ($23.63), against 100% on the pinned
+`anthropic/claude-sonnet-5.5`. The z-ai, openai and deepseek tilde aliases cache
+at 97-100%, so the alias itself is fine there. If a role must run on an
+Anthropic model, use the pinned id and accept that it goes stale.
+
+**Gates run at `medium` thinking, not `max`.** A review and a ponytail pass read
+a bounded frozen diff; at `max` they spent 70-95% of their output on reasoning
+(one ponytail pass: 264K reasoning tokens, $6.80) to produce a report of a few
+hundred words. The worker keeps pi's default: authoring is where thinking pays,
+and it was 8% of the run's cost.
+
 Ponytail is a cheap lane on purpose: it reads a bounded frozen diff, and a
 frontier model there costs more than every other lane combined. Step up to
-`~google/gemini-flash-latest` or `~openai/gpt-terra-latest` if its notes come
-back shallow.
+`~openai/gpt-terra-latest` at `medium` if its notes come back shallow.
 
 ## Read the contract
 
