@@ -18,6 +18,24 @@ The report has five sections:
   explained the run. Skills live in a chezmoi-managed tree: apply a proposal by
   editing its source (`chezmoi source-path <target>`) and landing that, never
   by editing the target alone, which is drift the next `chezmoi apply` discards.
+
+## Drift in the skill tree
+
+Before proposing anything, check the tree the run read is the tree the next
+`chezmoi apply` will keep:
+
+```sh
+chezmoi status ~/.agents/skills/orchestrate
+```
+
+Non-empty output means an earlier lane or operator edited the installed copies.
+That is a finding, not a footnote: report every drifted path, say which run
+wrote it, and propose nothing further until the operator has either re-applied
+(`chezmoi apply --force`, discards the drift) or adopted it into the source
+(`chezmoi source-path <target>`, keeps it). A proposal written into a drifted
+tree is a proposal the next apply deletes.
+
+Where `chezmoi` is not installed the check does not apply; say so and continue.
 - **Time per phase** — from the ledger's timestamps.
 - **Cost per model** — from the ledger's `usage` entries, with the checks below.
 

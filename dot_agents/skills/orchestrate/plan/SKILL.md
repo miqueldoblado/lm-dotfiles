@@ -48,6 +48,23 @@ named model against `pi --list-models`. A model that is not found is a stop:
 tell the operator which model is missing and ask which to use instead — do not
 guess and do not silently substitute.
 
+## Check the skill tree for drift
+
+This skill tree is chezmoi-managed: the files read here are copies, and an edit
+made to one is discarded by the next `chezmoi apply`. Before planning, check it
+is in sync:
+
+```sh
+chezmoi status ~/.agents/skills/orchestrate
+```
+
+Non-empty output is drift — a run or an operator edited the installed copy
+instead of the source. Report the drifted paths and stop: a run planned against
+a tree whose edits are about to be reverted is planning against a lie. The fix
+is the operator's: re-apply or adopt the drift into the source with
+`chezmoi source-path <target>`. When `chezmoi` is not installed the check does
+not apply; say so and continue.
+
 ## Read the contract
 
 Read `../core/CONTEXT.md` for the domain and rules, then `../core/plan.md` and
