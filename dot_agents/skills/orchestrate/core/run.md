@@ -61,6 +61,15 @@ A per-run override is the manifest's model line. Ponytail keeps its own role
 default; only a ponytail **fix** runs on the worker model, because a fix is
 authoring, not review.
 
+**A mechanical item's review may run on a lighter model of the reviewer's own
+family.** The `risk` the review contract already records for depth also picks
+the model: a mechanical item — a deletion, a rename, docs, config — is reviewed
+on the cheaper model of the same family as the high-risk reviewer. It stays in
+the reviewer's family, so the family rule above still holds and no exception is
+needed. Two guards: doubtful items are high-risk, and the fresh-eyes review of a
+**fix delta** is never downgraded, because a fix can add behaviour the original
+classification did not cover.
+
 **A model that does not work stops the run.** Stop, tell the operator which
 model failed and how, and ask which to use instead.
 

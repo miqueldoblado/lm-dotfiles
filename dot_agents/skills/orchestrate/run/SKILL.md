@@ -24,8 +24,15 @@ Role defaults, passed to the host's dispatch as the host module specifies. The
 | Role | Model |
 |---|---|
 | worker | pi's configured default (no flag) |
-| code-review | `openrouter/~z-ai/glm-latest:medium` |
+| code-review, high-risk | `openrouter/~z-ai/glm-latest:medium` |
+| code-review, mechanical | `openrouter/~z-ai/glm-flash-latest:medium` |
 | ponytail | `openrouter/~openai/gpt-luna-latest:medium` |
+
+The mechanical reviewer is [core/run.md](../core/run.md#models)'s lighter-model
+rule — same z-ai family, so the family rule holds without an exception. It is
+worth roughly 12% of a run: three mechanical passes of a nine-pass run cost
+$0.53 on `glm-latest` and about $0.09 on `glm-flash`. Default a doubtful item
+to high-risk, and never downgrade the fresh-eyes review of a fix delta.
 
 The family rule (core/run.md) requires the three roles to be different
 families: worker (deepseek), review (GLM), ponytail (OpenAI). Check every named
