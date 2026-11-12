@@ -35,6 +35,13 @@ never blind-resend).
 Read the lane's output from its pi session transcript (`agent_session.value`
 from the start reply).
 
+**Carry the lane's usage out of the same transcript.** Each assistant message
+carries `usage` with `input`, `output`, `cacheRead`, `cacheWrite`, `reasoning`
+and `cost.total`, plus the `model` that served it. Sum them per lane and write
+the ledger's `usage` entry as the lane settles — a retro that has to re-read a
+transcript pays for the analysis twice, and an uncollected lane is a lane it
+cannot price.
+
 ## isolate
 
 ```sh

@@ -19,11 +19,32 @@ The report has five sections:
   editing its source (`chezmoi source-path <target>`) and landing that, never
   by editing the target alone, which is drift the next `chezmoi apply` discards.
 - **Time per phase** — from the ledger's timestamps.
-- **Cost per model** — from the ledger's model records.
+- **Cost per model** — from the ledger's `usage` entries, with the checks below.
 
 The report is done when every finding is explained or marked **unexplained**,
 and every proposal names the section it would change plus the evidence that
 motivates it and the check that decides it landed.
+
+## Cost checks
+
+A cost section that only totals money is a bill, not a retro. These checks turn
+the ledger's `usage` entries into findings: each one compares a lane against the
+shape a healthy lane has, and any lane that fails a check is written up with its
+numbers and marked **explained** or **unexplained**.
+
+| Check | Healthy | What a failure means |
+|---|---|---|
+| Cache hit rate, per model: `cacheRead / (input + cacheRead)` | above 50% once a lane passes ~5 turns | The model or alias does not cache, or the prompt is rebuilt every turn. The whole context is repaid at input price on every turn. |
+| Fresh input volume, per lane | near the size of what it reads | A lane whose fresh input dwarfs its diff is re-reading context that should have been cached. Name the lane and the model. |
+| Reasoning share: `reasoning / output` | under 50% for a gate lane | The thinking level is buying tokens instead of a verdict. Name the level it ran at. |
+| Requested vs served: `models` against `served` | equal | A mismatch is a routing or dispatch error, and every cost figure attributed to the requested model is wrong. |
+| Role cost share | worker lanes carry the work, gates a minority | Run cost concentrated in the gate roles is a defect in the run's shape, not in the model. |
+| Pass count per item | within the caps here and in [review-contract.md](review-contract.md) | A pass count above its cap is a contract defect, whatever it cost. |
+| Model availability | every model named at plan time resolved | Count the causes: `model_unavailable` means a model was named that the catalog did not have. |
+
+**A check that fires is evidence, and the report says which.** The same failure
+in two runs is a recurrence: report it against the earlier record rather than as
+a new finding.
 
 ## What earns a proposal
 

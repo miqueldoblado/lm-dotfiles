@@ -23,3 +23,7 @@ follow it.
 
 Follow `../core/retro.md`: produce the five-section report, explain every
 number, and end in an edit someone can make.
+
+The cost section is only as good as the ledger's `usage` entries. Read them
+before writing a figure, and run the cost checks in `../core/retro.md` — a lane
+with no `usage` is reported as unpriced, never assumed cheap.

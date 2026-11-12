@@ -16,6 +16,26 @@ shape; the shape is the same whichever host wrote it.
 - `classFixes`: one entry per defect class, with its `brief` and the items it
   reached.
 - `models`: what the run asked for, and `served`: what each lane's record names.
+- `usage`: one entry per lane, written as the lane settles — see *Lane usage*.
+
+## Lane usage
+
+Every lane's settle writes a `usage` entry, because the retro cannot price a
+lane it only has prose about. The host module's `collect` verb names where its
+record carries these fields; the coordinator copies them, it does not derive
+them.
+
+- `lane`: the lane's name and role.
+- `model`: the model the lane actually ran, not the one requested.
+- `input`: fresh, uncached input tokens.
+- `cacheRead`, `cacheWrite`: tokens read from and written to the prompt cache.
+- `output`, `reasoning`: output tokens, and how many of them were reasoning.
+- `turns`: assistant turns the lane took.
+- `cost`: the lane's total, in USD.
+
+A field the lane's record does not name is **absent, not zero**. Absent usage
+reads as unverified in the retro, and a lane missing every field is named in the
+report as unpriced rather than assumed cheap.
 
 ## Item entry
 
