@@ -70,6 +70,25 @@ Column names differ from status names — transition by id, never by name:
 - never move a ticket to TO_DEPLOY yourself — QA does that once Ready to Test passes
 - PR titles and commits carry the ticket: `feat: RBT-1098 add taxonomy aliases`
 
+## Branch names carry the ticket
+
+Branch off the current `main` as `m-<type>-<description>-<KEY>`:
+
+```
+m-feature-map_haute_couture_universe-RBT-1153
+m-fix-taxonomy-trigger-contract-floor-RBT-1144
+m-chore-speed_up_taxonomy_trigger_tests-RBT-1025
+```
+
+- `type` is one of `feature`, `fix`, `bug`, `chore`, `experiment` — the same word the
+  commit prefix will use
+- `description` is short and describes the work; snake_case and kebab-case both exist, either
+  is fine
+- `KEY` is the ticket the branch delivers
+
+**Always attach a ticket key.** When the ticket is not obvious from what I asked, ask me which one
+it is before creating the branch. Only branch without a key if I explicitly say so.
+
 ## Publishing a Databricks notebook to a workspace
 
 Databricks notebooks are versioned in a repo (`projects/<project>/notebooks/`) and normally reach
